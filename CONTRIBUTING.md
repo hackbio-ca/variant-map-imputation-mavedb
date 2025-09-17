@@ -9,7 +9,7 @@ Thank you for your interest in contributing to `variant-map-imputation-mavedb`! 
 2. **Clone your fork**: Clone your forked repository to your local development environment.
 
     ```bash
-    git clone https://github.com/variant-map-imputation-mavedb/variant-map-imputation-mavedb.git
+    git clone https://github.com/hackbio-ca/variant-map-imputation-mavedb.git
     ```
 
 3. **Create a new branch**: Create a new branch for your changes. Use a descriptive branch name that indicates the work you are doing.
