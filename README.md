@@ -1,6 +1,6 @@
-# demo-project
+# variant-map-imputation-mavedb
 
-A brief description of the project. Explain what it does and who it's for.
+Calibrated Variant Maps and Lightweight Imputation for Clinically Useful Scores using MaveDB
 
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 
