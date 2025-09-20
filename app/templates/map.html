@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block content %}
+  <h2>Variant Effect Map for {{ gene }}</h2>
+  <div id="plotly-graph"></div>
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+  <script>
+    var graphJSON = JSON.parse('{{ graphJSON|tojson|safe }}');
+    Plotly.newPlot('plotly-graph', graphJSON.data, graphJSON.layout);
+  </script>
+{% endblock %}
