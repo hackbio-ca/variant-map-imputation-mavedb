@@ -6,57 +6,63 @@ Calibrated Variant Maps and Lightweight Imputation for Clinically Useful Scores 
 
 ## Abstract
 
-A concise summary of the project's goals, the problem it addresses, and its intended audience. This section can include potential use cases and key features.
+This project addresses methodological challenges in integrating multiplexed assay of variant effect (MAVE) data across multiple experiments. Using SPTAN1 variant data as a case study, we identify significant issues with cross-experiment consistency and propose quality control frameworks for reliable data integration. The pipeline implements z-score normalization, consistency-based filtering, and baseline imputation methods while acknowledging limitations and proposing generative models for future work. Our analysis reveals that only 60.2% of mutations show high consistency across experiments, highlighting the need for improved integration methods in MAVE data analysis.
 
 ## Installation
 
-Provide instructions on how to install and set up the project, such as installing dependencies and preparing the environment.
+Install the required Python dependencies and prepare the environment for running the analysis pipeline.
 
 ```bash
-# Example command to install dependencies (Python)
-pip install project-dependencies
+# Install Python dependencies
+pip install -r requirements.txt
 
-# Example command to install dependencies (R)
-install.packages("project-dependencies")
+# Ensure SPTAN1Data directory contains raw CSV files
+# The pipeline expects data files in ../SPTAN1Data/ directory
 ```
 
 ## Quick Start
 
-Provide a basic usage example or minimal code snippet that demonstrates how to use the project.
+Run the complete analysis pipeline to process SPTAN1 variant data and identify methodological challenges in MAVE data integration.
 
-```python
-# Example usage (Python)
-import my_project
+```bash
+# Run complete pipeline
+cd Zscore
+python run_pipeline.py --cleanup
 
-demo = my_project.example_function()
-print(demo)
-```
-```r
-# Example usage (R)
-library(my_project)
-
-demo <- example_function()
-print(demo)
+# Or run individual steps
+python 01_data_processing.py
+python 02_data_validation.py
+python 03_imputation.py
+python 04_analysis.py
+python 05_visualization.py
+python 06_methodological_insights.py
 ```
 
 ## Usage
 
-Add detailed information and examples on how to use the project, covering its major features and functions.
+The pipeline consists of six main analysis steps that can be run individually or as a complete workflow:
 
-```python
-# More usage examples (Python)
-import my_project
+### Pipeline Steps
 
-demo = my_project.advanced_function(parameter1='value1')
-print(demo)
-```
-```r
-# More usage examples (R)
-library(demoProject)
+1. **Data Processing** (`01_data_processing.py`): Loads raw CSV files, parses HGVS protein notation, and calculates z-scores for cross-experiment comparison.
 
-demo <- advanced_function(parameter1 = "value1")
-print(demo)
-```
+2. **Data Validation** (`02_data_validation.py`): Analyzes data coverage, validates imputation parameters through cross-validation, and quantifies consistency across experiments.
+
+3. **Imputation** (`03_imputation.py`): Implements KNN imputation as baseline method while acknowledging limitations with high missing data rates (88.49%).
+
+4. **Analysis** (`04_analysis.py`): Categorizes mutations by effect size, calculates consistency scores, and identifies significant variants.
+
+5. **Visualization** (`05_visualization.py`): Creates comprehensive plots and interactive heatmaps for data exploration.
+
+6. **Methodological Insights** (`06_methodological_insights.py`): Identifies integration challenges and proposes quality control frameworks.
+
+### Key Features
+
+- **Z-score normalization** for cross-experiment comparison
+- **Consistency-based filtering** for reliable mutations
+- **Quality control metrics** for experiment validation
+- **Baseline imputation** with acknowledged limitations
+- **Proposed generative models** for future improvements
 
 ## Contribute
 
