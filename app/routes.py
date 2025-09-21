@@ -1,20 +1,13 @@
-from flask import Blueprint, render_template, request
-import json, plotly
-from .utils import generate_variant_map
+from flask import Blueprint
 
+# Create a blueprint named 'main'
 main = Blueprint("main", __name__)
 
-genes = ["SPTAN1", "SPG"]
-
 @main.route("/")
-def index():
-    return render_template("index.html", genes=genes)
+def home():
+    return "Hello, Flask is working with a blueprint!"
 
-@main.route("/map")
-def map_view():
-    gene = request.args.get("gene")
-
-    fig = generate_variant_map(gene)
-    graphJSON = json.dumps(fig, cls=plotly.utils.PlotlyJSONEncoder)
-
-    return render_template("map.html", graphJSON=graphJSON, gene=gene)
+@main.route("/test")
+def test():
+    return "Test route works!"
+    
