@@ -4,10 +4,11 @@ import os
 
 # Create a list of the files to process. Replace this with a glob pattern for all 42 files.
 # For example: all_files = glob.glob(os.path.join("path/to/your/files/", "*.csv"))
-all_files = glob.glob(os.path.join("/Users/cynthiabts/Downloads/MaveDBSPTAN1", "*.csv"))
+all_files = glob.glob(os.path.join("MaveDBSPTAN1", "*.csv")) # note: not the full path; add the folder containing the csv files into the same directory as this script.
 
 # Create an empty list to store the dataframes
 list_of_dfs = []
+print(list_of_dfs)
 
 # Loop through each file and add an 'experiment_id' column
 for file_path in all_files:
@@ -15,6 +16,7 @@ for file_path in all_files:
     # Extract a unique identifier from the filename to serve as the experiment ID
     df['experiment_id'] = os.path.basename(file_path).split('.')[0]
     list_of_dfs.append(df)
+    print(list_of_dfs)
 
 # Concatenate all dataframes into a single dataframe
 combined_df = pd.concat(list_of_dfs, ignore_index=True)
