@@ -1,0 +1,2 @@
+# This file ensures the Zscore directory is tracked by git
+# The large CSV files are excluded by .gitignore
